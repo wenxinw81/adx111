@@ -1,0 +1,28 @@
+{
+  "version": "2026-07-28.bidding.v1",
+  "analysis_type": "bidding",
+  "sheet_order": [
+    "大盘竞价概览",
+    "投放策略甘特图",
+    "APP竞价",
+    "时段竞价",
+    "订单策略素材竞价",
+    "出价分层",
+    "APP×时段",
+    "APP×订单策略素材",
+    "APP×出价分层",
+    "时段×订单策略素材",
+    "时段×出价分层",
+    "订单策略素材×出价分层",
+    "口径说明"
+  ],
+  "rules": {
+    "price_bucket": ["100", "100-500", "500-1000", "1000-1500", "1500-2000", "2000+"],
+    "app_bundle_to_app_name": true,
+    "strategy_name_source": "dim.dim_ad_dsp_strategy",
+    "track_join_rule": "pageExp/jumpButton 先从 preset_attributes.url 解析 rid=response_id、pyck=bid_seat_id；解析不到时用 root_id/parent_event_id 兜底",
+    "cross_table_limit": 300,
+    "app_top_n": 30,
+    "app_cross_tables_use_top_app_only": true
+  }
+}

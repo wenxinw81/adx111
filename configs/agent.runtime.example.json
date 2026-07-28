@@ -1,0 +1,16 @@
+{
+  "database": {
+    "host": "192.168.100.23",
+    "port": 29030,
+    "database": "ads",
+    "user": "WishFox"
+  },
+  "ssh_tunnel": {
+    "enabled": true,
+    "ssh_user": "noel",
+    "ssh_host": "192.168.110.139",
+    "local_port": 19030
+  },
+  "standard_path": "configs/basic_report.json",
+  "output_root": "outputs"
+}

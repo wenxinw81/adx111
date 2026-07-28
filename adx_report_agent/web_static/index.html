@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ADX 日报 Agent</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="workspace">
+        <div class="pane input-pane">
+          <header class="topbar">
+            <div>
+              <h1>ADX 日报 Agent</h1>
+              <p>输入一句话，生成基础、花销或竞价分析 Excel，可限定订单号。</p>
+            </div>
+            <span class="status-dot" id="envStatus">直连</span>
+          </header>
+
+          <form id="reportForm" class="composer">
+            <textarea id="promptInput" name="text" rows="5" autocomplete="off">看下昨天数据</textarea>
+            <div class="quick-row">
+              <button type="button" data-text="看下昨天数据">基础</button>
+              <button type="button" data-text="看下昨天花销">花销</button>
+              <button type="button" data-text="看下昨天竞价">竞价</button>
+              <button type="button" data-text="帮我生成昨天的218订单的基础数据">218订单</button>
+            </div>
+            <button class="primary" type="submit">
+              <span>生成报告</span>
+              <span aria-hidden="true">→</span>
+            </button>
+          </form>
+        </div>
+
+        <div class="pane result-pane">
+          <div class="section-title">解析结果</div>
+          <dl class="parsed-grid">
+            <div>
+              <dt>日期</dt>
+              <dd id="parsedDate">-</dd>
+            </div>
+            <div>
+              <dt>类型</dt>
+              <dd id="parsedType">-</dd>
+            </div>
+            <div>
+              <dt>订单</dt>
+              <dd id="parsedOrder">全部</dd>
+            </div>
+            <div>
+              <dt>状态</dt>
+              <dd id="jobStatus">未开始</dd>
+            </div>
+          </dl>
+
+          <div class="progress-shell">
+            <div id="progressBar" class="progress-bar"></div>
+          </div>
+
+          <div id="messageBox" class="message">
+            可以输入“看下昨天数据”“看下昨天花销”“看下昨天竞价”“帮我生成昨天的218订单的基础数据”。
+          </div>
+
+          <a id="downloadLink" class="download hidden" href="#" download>下载 Excel 报告</a>
+        </div>
+      </section>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

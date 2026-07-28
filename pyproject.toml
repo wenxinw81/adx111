@@ -1,0 +1,29 @@
+[project]
+name = "adx-report-agent"
+version = "0.1.0"
+description = "LangGraph-based ADX daily report agent for basic, spend, and bidding analyses."
+requires-python = ">=3.11"
+dependencies = [
+  "langgraph>=1.2.9",
+  "langchain-core>=1.5.1",
+  "openpyxl>=3.1.0",
+  "pandas>=2.0.0",
+  "pydantic>=2.7.4",
+  "pymysql>=1.1.0",
+  "fastapi>=0.111.0",
+  "uvicorn>=0.30.0",
+  "requests>=2.32.0",
+  "requests-toolbelt>=1.0.0",
+  "sshtunnel>=0.4.0",
+]
+
+[project.scripts]
+adx-report = "adx_report_agent.cli:main"
+adx-report-chat = "adx_report_agent.chat_cli:main"
+adx-report-web = "adx_report_agent.web_app:main"
+
+[tool.setuptools]
+packages = ["adx_report_agent", "adx_report_agent.nodes", "adx_report_agent.tools"]
+
+[tool.setuptools.package-data]
+adx_report_agent = ["web_static/*"]

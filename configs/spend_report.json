@@ -1,0 +1,35 @@
+{
+  "version": "2026-07-28.spend.v1",
+  "analysis_type": "spend",
+  "sheet_order": [
+    "大盘花费概览",
+    "策略花费甘特图",
+    "APP花费",
+    "时段花费",
+    "订单策略素材花费",
+    "地域花费",
+    "广告位类型花费",
+    "落地页花费",
+    "口径说明"
+  ],
+  "rules": {
+    "sort_by": "花费(元)",
+    "app_bundle_to_app_name": true,
+    "track_join_rule": "pageExp/jumpButton 先从 preset_attributes.url 解析 rid=response_id、pyck=bid_seat_id；解析不到时用 root_id/parent_event_id 兜底",
+    "strategy_name_source": "dim.dim_ad_dsp_strategy",
+    "adviewtype_mapping": {
+      "4": "插屏",
+      "5": "开屏",
+      "10": "信息流"
+    },
+    "top_app_n": 50,
+    "top_region_n": 80,
+    "top_order_strategy_material_n": 300,
+    "geo_region_rule": "武汉=geo_lat 29.8–31.6 且 geo_lon 113.6–115.2；经纬度为空=地理缺失；其他=非武汉"
+  },
+  "editable_notes": [
+    "花销专门分析以花费降序为主，保留漏斗、比率、单次成本和花费占比。",
+    "地域默认按经纬度分武汉、非武汉、地理缺失；如果后续有城市字段可再扩展城市明细。",
+    "广告位类型默认按 request.imp_adviewtype 映射。"
+  ]
+}

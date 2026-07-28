@@ -1,0 +1,53 @@
+{
+  "version": "2026-07-28.basic.v1",
+  "analysis_type": "basic",
+  "sheet_order": [
+    "大盘指标汇总",
+    "过滤情况",
+    "投放策略甘特图",
+    "订单策略创意",
+    "APP漏斗Top30",
+    "落地页情况",
+    "小时分析",
+    "APP×时段",
+    "APP×订单策略素材",
+    "时段×订单策略素材",
+    "口径说明"
+  ],
+  "funnel": [
+    "邀约",
+    "出价",
+    "竞得",
+    "点击",
+    "落地页曝光",
+    "跳转",
+    "总花销(元)"
+  ],
+  "rules": {
+    "previous_day_compare": true,
+    "drop_zero_bid_hours": true,
+    "landing_page_requires_click": true,
+    "cost_column_at_end": true,
+    "remove_cpc": true,
+    "app_top_n": 30,
+    "cross_table_limit": 300,
+    "app_bundle_to_app_name": true,
+    "strategy_name_source": "dim.dim_ad_dsp_strategy",
+    "track_join_rule": "pageExp/jumpButton 先从 preset_attributes.url 解析 rid=response_id、pyck=bid_seat_id；解析不到时用 root_id/parent_event_id 兜底"
+  },
+  "style": {
+    "title_fill": "073D63",
+    "header_fill": "2F70C9",
+    "section_fill": "DDEBF7",
+    "compare_fill": "7FD0AA",
+    "warning_fill": "FFE699",
+    "alert_font": "FF0000",
+    "grid_color": "D9E2EC"
+  },
+  "editable_notes": [
+    "后续修改分析标准优先改本文件；需要新增SQL口径或新分析类型时再改代码。",
+    "landing_page_requires_click=true 表示落地页曝光/跳转必须先关联 click 表。",
+    "drop_zero_bid_hours=true 表示小时分析只保留有出价的活跃小时。",
+    "APP 展示优先使用 dsp-app包名.csv 的 app_name，保留 app_bundle 便于核对。"
+  ]
+}
